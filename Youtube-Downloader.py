@@ -36,5 +36,3 @@ while x == "true":
     # Download the Video
     video.download('../Video')
     print("Download done")
-    # fine
-    
