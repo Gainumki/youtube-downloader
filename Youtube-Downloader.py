@@ -14,7 +14,7 @@ while x == "true":
     # Get the Video if the text was an url
     if ver == 0:
         youtube = pytube.YouTube(url)
-        video = youtube.streams.first()
+        video = youtube.streams.get_highest_resolution()
         print("Got the video")
     
     # Respond if the text wasn't an url
@@ -27,12 +27,15 @@ while x == "true":
             ver1 = url.find("https://youtu.be/")
             if ver1 == 0:
                 youtube = pytube.YouTube(url)
-                video = youtube.streams.first()
+                video = youtube.streams.get_highest_resolution()
                 print("Got the video")
             else:
                 print("what")
                 break
 
     # Download the Video
+    print(youtube.title)
     video.download('../Video')
     print("Download done")
+    
+    
